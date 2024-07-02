@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel = "stylesheet" href="pra.css">
+		<title>Buyer's Information</title>
+	</head>
+<body>
+	<div class="container">
+	<div class="NAME">
+	<h2> Product Checkout </h2>
+		<label for="fname">First Name</label>
+		<input type="text" name="fname" id="fname" align="center"><br><br>
+		
+		<label for="lname">Last Name</label>
+		<input type="text" name="lname" id="lname"><br><br>
+		
+		<label for="email"&emsp;>Email</label>
+		<input type="email" name="email" id="email" ><br><br>
+		
+		<label for="address">Address</label>
+		<input type="text" name="address" id="address"><br><br>
+		
+		<label for="Pincode">Pin Code</label>
+		<input type="text" name="Pincode" id="Pincode">	<br><br>
+		
+		<label for="contact">Contact</label>
+		<input type="text" name="contact" maxlength ="10" placeholder = "+91" id="contact" required><br><br>
+		
+		<label for="details">Product Details</label>
+		<input type="text" name="details" id="details"><br><br><hr>
+		
+		<h2><b>Payment Method Not Selected</b></h2><hr><br>
+  <p id="xs"><p>
+     <div>
+        <input type="radio" name="size" value="UPI Payments" id="l" style="margin-right: 0"><br>
+        <label for="l">UPI Payments</label><hr><br><br>
+		
+		<input type="radio" name="size" value="Credit/Debit Payments" id="xl"><br>
+        <label for="l">Card Payments</label><br><br>
+	 </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/3.0.0/jquery.payment.min.js"></script>
+ <div class="padding">
+        <div class="row">
+            <div class="container-fluid d-flex justify-content-center">
+                <div class="col-sm-8 col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span>CREDIT/DEBIT CARD PAYMENT</span><hr>
+                                
+                            </div>
+							<p> Accepted Cards </p>
+
+                            <div class="col-md-6 text-right" style="margin-top: -5px;">
+
+                                  <img src="https://img.icons8.com/color/36/000000/visa.png">
+                                  <img src="https://img.icons8.com/color/36/000000/mastercard.png">
+                                  <img src="https://img.icons8.com/color/36/000000/amex.png">
+                                           
+                            </div>      
+
+                        </div>    
+  
+                        </div>
+                        <div class="card-body" style="height: 350px">
+                            <div class="form-group">
+                            <label for="cc-number" class="control-label">CARD NUMBER</label>
+                            <input id="cc-number" type="tel" class="input-lg form-control cc-number" maxlength= "16" autocomplete="cc-number" placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;" required>
+                        </div>
+
+                          <div class="row">
+
+                            <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label for="cc-exp" class="control-label">CARD EXPIRY</label>
+                                    <input id="cc-exp" type="tel" class="input-lg form-control cc-exp" maxlength="4" autocomplete="cc-exp" placeholder="&bull;&bull; / &bull;&bull;" required>
+                                  </div>
+
+                                
+                          </div>
+
+                            <div class="col-md-6">
+                               <div class="form-group">
+                                <label for="cc-cvc" class="control-label">CARD CVC</label>
+                                <input id="cc-cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" maxlength="3" placeholder="&bull;&bull;&bull;&bull;" required>
+                              </div>
+							</div>
+                              
+                          </div>
+
+      
+                          <div class="form-group">
+                            <label for="numeric" class="control-label">CARD HOLDER NAME</label>
+                            <input  type="text" class="input-lg form-control">
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+</div>
+    <div class="payradio">
+        <input type="radio" name="size" value="Paypal" id="xxl" align="centre"><br>
+        <label for="xxl">Paypal</label><hr><br><br>
+    </div>
+        <button id="btn" class="button">CONFIRM PURCHASE</button><br><br><br>
+
+    <p id="output"></p>
+	<script>
+        const btn = document.querySelector('#btn');        
+        const radioButtons = document.querySelectorAll('input[name="size"]');
+        btn.addEventListener("click", () => {
+            let selectedSize;
+            for (const radioButton of radioButtons) {
+                if (radioButton.checked) {
+                    selectedSize = radioButton.value;
+                    break;
+                }
+            }
+				
+           
+            output.innerText = selectedSize ? `${selectedSize}` : `Select a Payment Method`;
+        });
+		
+
+    </script><hr><br>
+<form onsubmit="AddRow()" action="javascript:alert('Thank you for buying, Come Again!');">
+	<input type="submit">
+	<div class=RememberMe>
+		<label for="rememberMe">Remember me</label>
+		<input type="checkbox" value="lsRememberMe" id="rememberMe"> 
+	</div>
+</div>
+
+<div style="font-family:Georgia"; align="center">Purchase Summary </p>	
+	<table id="show" border="1px solid">
+
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Address</th>
+					<th>Pin-Code</th>
+					<th>Contact</th>
+					<th>Product-Details</th>
+					<th>Payment Method Selected</th>
+				</tr>
+
+		</table>
+	<script>
+
+		var list1 = [];
+		var list2 = [];
+		var list3 = [];
+		var list4 = [];
+		var list5 = [];
+		var list6 = [];
+		var list7 = [];
+		var list8 = [];
+
+		var n = 1;
+		var x = 0;
+		function AddRow(){
+
+			var AddRown = document.getElementById('show');
+			var NewRow = AddRown.insertRow(n);
+
+			list1[x] = document.getElementById("fname").value;
+			list2[x] = document.getElementById("lname").value;
+			list3[x] = document.getElementById("email").value;
+			list4[x] = document.getElementById("address").value;
+			list5[x] = document.getElementById("Pincode").value;
+			list6[x] = document.getElementById("contact").value;
+			list7[x] = document.getElementById("details").value;
+			list8[x] = document.getElementById("output").innerText;
+
+			var cel1 = NewRow.insertCell(0);
+			var cel2 = NewRow.insertCell(1);
+			var cel3 = NewRow.insertCell(2);
+			var cel4 = NewRow.insertCell(3);
+			var cel5 = NewRow.insertCell(4);
+			var cel6 = NewRow.insertCell(5);
+			var cel7 = NewRow.insertCell(6);
+			var cel8 = NewRow.insertCell(7);
+
+			cel1.innerHTML = list1[x];
+			cel2.innerHTML = list2[x];
+			cel3.innerHTML = list3[x];
+			cel4.innerHTML = list4[x];
+			cel5.innerHTML = list5[x];
+			cel6.innerHTML = list6[x];
+			cel7.innerHTML = list7[x];
+			cel8.innerHTML = list8[x];
+
+			n++;
+			x++;
+		}
+
+	</script>
+</body>
+</html>
